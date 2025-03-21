@@ -122,7 +122,7 @@ class Recommendations:
         for genre in current_user.genre_preferences:
             avg_genre_rating = Recommendations.get_avg_genre_rating(genre)
             for movie in Movie.instances:
-                """Если оценка фильма выше средней оценки жанра - рекомендуем"""
+                """Если оценка фильма выше средней оценки фильмов такого же жанра - рекомендуем"""
                 if movie.genre == genre and movie.get_avg_rating() > avg_genre_rating:
                     recommended_movie.append(movie.title)
         return f"Рекомендуемые фильмы для нового пользователя {current_user.username}\n{recommended_movie}"
