@@ -31,20 +31,20 @@ class User:
         """Оценка фильма пользователем"""
         self.movie_ratings[movie] = score
         movie.add_rating(score)
-        """Присвоение оценки жанра фильма"""
+        """Присвоение оценки жанру фильма"""
         if movie.genre not in self.genre_ratings:
             self.genre_ratings[movie.genre] = []
         self.genre_ratings[movie.genre].append(score)
 
     def get_movie_ratings(self):
-        """Получение оценок фильмов пользователем"""
+        """Получение оценок фильмов пользователя"""
         movie_rating_dict = {}
         for movie, score in self.movie_ratings.items():
             movie_rating_dict[movie.title] = score
         return movie_rating_dict
 
     def get_avg_genre_ratings(self):
-        """Получение средней оценки жанров пользователем"""
+        """Получение средней оценки жанров пользователя"""
         avg_genre_ratings = {}
         for genre, ratings in self.genre_ratings.items():
             avg_genre_ratings[genre] = sum(ratings) / len(ratings)
