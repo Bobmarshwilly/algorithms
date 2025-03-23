@@ -1,4 +1,4 @@
-from numpy import *
+import numpy as np
 
 
 class User:
@@ -101,7 +101,7 @@ class Recommendations:
             user1_avg_genre_score = user1.get_avg_genre_ratings()[genre]
             user2_avg_genre_score = user2.get_avg_genre_ratings()[genre]
             distance += (user1_avg_genre_score - user2_avg_genre_score) ** 2
-        distance = sqrt(distance)
+        distance = np.sqrt(distance)
         return distance
 
     @staticmethod
